@@ -15,6 +15,7 @@ import { SeriesComponent } from './series/series.component';
 import { AdminSeriesComponent } from './admin/admin-series/admin-series.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     SeriesComponent,
     AdminSeriesComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
