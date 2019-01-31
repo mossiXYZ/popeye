@@ -14,17 +14,22 @@
     </form>
 
     <ul class="navbar-nav "  >
-        <li *ngIf= "user" ngbDropdown class="nav-item dropdown">
-            <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
+
+        <li *ngIf= "user$ | async as user; else  anonymousUser" ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{user.displayName}}</a>
             <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdown01">
               <a class="dropdown-item" routerLink="/users">Manage Users</a>
               <a class="dropdown-item" routerLink="/series">Manage Products</a>
               <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
           </li>
-      <li *ngIf= "!user" class="nav-item active" >
-        <a class="nav-link"  routerLink="login">Connexion <span class="sr-only">(current)</span></a>
-      </li>
+          <ng-template #anonymousUser>
+              <li  class="nav-item active" >
+                  <a class="nav-link"  routerLink="login">Connexion <span class="sr-only">(current)</span></a>
+                </li>
+          </ng-template>
+
 
     </ul>
 
