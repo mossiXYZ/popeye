@@ -16,6 +16,7 @@ import { AdminSeriesComponent } from './admin/admin-series/admin-series.componen
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
+import { SerieFormComponent } from './admin/serie-form/serie-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UsersComponent } from './users/users.component';
     SeriesComponent,
     AdminSeriesComponent,
     LoginComponent,
-    UsersComponent
+    UsersComponent,
+    SerieFormComponent
   ],
   imports: [
     BrowserModule,
