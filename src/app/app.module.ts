@@ -35,7 +35,8 @@ import { UsersComponent } from './users/users.component';
     AppRoutingModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
