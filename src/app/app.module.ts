@@ -17,6 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { SerieFormComponent } from './admin/serie-form/serie-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SerieService } from './shared/serie.service';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { SerieFormComponent } from './admin/serie-form/serie-form.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AngularFontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase), // Main Angular fire module 
     AngularFireDatabaseModule,  // Firebase database module
     AngularFireAuthModule, 
@@ -38,6 +44,7 @@ import { SerieFormComponent } from './admin/serie-form/serie-form.component';
     NgbModule.forRoot()
   ],
   providers: [
+    SerieService
   ],
   bootstrap: [AppComponent]
 })

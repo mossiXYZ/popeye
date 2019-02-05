@@ -1,4 +1,40 @@
+<div> 
+        <button routerLink="/admin/series/new" class="btn btn-info"> New Serie</button>
+    </div>    
 <div>
+        <form action="" class="form-inline">
+            <input  class="form-control" name="searchInput" placeholder="Search" #searchInput = "ngModel" [(ngModel)]= "searchText " style="width: 80%;">
+            <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
+        </form>
+</div> 
+<div class="table-responsive">
+        <table class="table  table-sm  table-bordred table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Year</th>
+                    <th>Image Url</th>
+                    <th></th>
+                </tr>
+            </thead>
 
-    <a routerLink="/admin/series/new" class="btn btn-primary"> New Serie</a>
-</div>
+            <ng-container *ngFor = "let serie of serieArray">
+                <tr *ngIf="filterCondition(serie)">
+                        <td >{{serie.title}} </td>
+                        <td >{{serie.description}} </td>
+                        <td >{{serie.year}} </td>
+                        <td >{{serie.imgUrl}} </td>
+
+                        <td> <p data-placement="top" data-toggle="tooltip" title="Edit"><button data-title="Edit" routerLink="/admin/series/new"class="btn btn-info btn-xs" (click)="serieService.populateFrom(serie)"><span class="fa fa-edit" aria-hidden="true"></span></button></p></td>
+                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"(click)="onDelete(serie.$key)"><span class="fa fa-trash" aria-hidden="true"></span></button></p></td>
+
+
+
+                </tr>
+            </ng-container>
+        </table>
+        
+    </div>   
+    <div class="alert alert-danger" *ngIf= "showDeleteMessage">Delete Successfully!</div>
+
